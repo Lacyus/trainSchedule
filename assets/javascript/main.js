@@ -25,7 +25,7 @@ var TTrainDestination = $("#train-destination");
 var TTrainTime = $("#train-time").mask("00:00");
 var TTimeFrequency = $("#time-frequency").mask("00");
 
-database.ref("/trains").on("child_added", function(snapshot) {
+database.ref("trains").on("child_added", function(snapshot) {
 
     //  local variables for firebase
     var trainDiff = 0;
@@ -71,7 +71,7 @@ var storeInputs = function(event) {
     trainFrequency = TTimeFrequency.val().trim();
 
     // add to firebase
-    database.ref("/trains").push({
+    database.ref("trains").push({
         name: trainName,
         destination: trainDestination,
         time: trainTime,
